@@ -17,6 +17,13 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
+  test "users can't be saved without an email" do
+    @user = User.new(password: "dogs are great")
+    refute @user.valid?
+    @user.email = "some@email.example"
+    assert @user.valid?
+  end
+
   test "users with an invalid email are rejected" do
     @user = User.new(email: "stupid nonsense",
                      password: "taco lunch")
