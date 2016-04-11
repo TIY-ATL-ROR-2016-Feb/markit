@@ -1,0 +1,15 @@
+<h1>New User</h1>
+
+<%= form_tag(users_path) do %>
+    <%= label_tag("Email") %> <br/>
+    <%= text_field_tag("email", @user.email) %>
+
+    <%= label_tag("Password") %> <br/>
+    <%= text_field_tag("password", @user.password) %>
+
+    <%= label_tag("Confirm Password") %> <br/>
+    <%= text_field_tag("confirmation", @user.password_confirmation) %>
+
+    <%= button_tag("Signup") %>
+
+<% end %>
