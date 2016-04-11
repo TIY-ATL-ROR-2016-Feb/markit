@@ -10,4 +10,22 @@ class UsersControllerTest < ActionController::TestCase
     # check that response is 200 OK
     assert_response :ok
   end
+
+  test "can create a new user" do
+    assert_difference("User.count") do
+      post :create, {
+             email: "foo@bar.baz",
+             full_name: "Britton Stanhope Butler",
+             password: "dumb example",
+             confirmation: "dumb example"
+           }
+    end
+    assert_response :created
+  end
+
+  test "bad user data redisplays the form" do
+    post :create, { email: "cookies@are.great" }
+    assert_template :new
+    assert_not_nil assigns(:user)
+  end
 end
