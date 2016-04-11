@@ -20,7 +20,7 @@ class UsersControllerTest < ActionController::TestCase
              confirmation: "dumb example"
            }
     end
-    assert_response :created
+    assert_redirected_to root_path
   end
 
   test "bad user data redisplays the form" do
