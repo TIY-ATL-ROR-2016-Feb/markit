@@ -20,6 +20,16 @@ class LoginsControllerTest < ActionController::TestCase
     assert_template :new
   end
 
+  test "user tries to login with an invalid email" do
+    post :create, {
+           email: "nonsense-bullshit",
+           password: "stuff"
+         }
+    assert_template :new
+    assert_nil session[:user_id]
+    assert_includes flash[:notice], "Invalid "
+  end
+
   test "can display a login form" do
     get :new
     assert_response :ok
