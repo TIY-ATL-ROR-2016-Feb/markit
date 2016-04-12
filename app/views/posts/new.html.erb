@@ -1,0 +1,13 @@
+<h1>New Post</h1>
+
+<%= form_tag(posts_path) do %>
+
+    <%= label_tag("Title") %>
+    <%= text_field_tag("title") %>
+
+    <%= label_tag("Link URL") %>
+    <%= text_field_tag("link_url") %>
+
+    <%= button_tag("Submit") %>
+
+<% end %>
