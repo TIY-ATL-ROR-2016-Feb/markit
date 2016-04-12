@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+google:
+  title: I found this amazing search engine...
+  link_url: google.com
+  user: brit
