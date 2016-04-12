@@ -31,4 +31,10 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "this@is.okay"
     assert @user.valid?
   end
+
+  test "users have many posts" do
+    user = users(:brit)
+    assert user.posts.count >= 0
+    assert_equal user.posts.first, posts(:google)
+  end
 end
