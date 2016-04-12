@@ -19,4 +19,13 @@ class PostTest < ActiveSupport::TestCase
     post = posts(:google)
     assert_equal post.user, users(:brit)
   end
+
+  test "posts need a title and url" do
+    @post = users(:brit).posts.new(title: "awesome cats")
+    refute @post.valid?
+    @post = users(:brit).posts.new(link_url: "google.com")
+    refute @post.valid?
+    @post.title = "awesome cats"
+    assert @post.valid?
+  end
 end
