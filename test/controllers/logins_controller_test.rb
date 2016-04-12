@@ -35,4 +35,11 @@ class LoginsControllerTest < ActionController::TestCase
     assert_response :ok
     assert_template :new
   end
+
+  test "a user can logout" do
+#    sign_in(users(:brit))
+    delete :destroy
+    assert_redirected_to root_path
+    assert_nil session[:user_id]
+  end
 end
