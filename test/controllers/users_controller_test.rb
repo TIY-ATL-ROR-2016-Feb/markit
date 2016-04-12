@@ -17,7 +17,8 @@ class UsersControllerTest < ActionController::TestCase
              email: "foo@bar.baz",
              full_name: "Britton Stanhope Butler",
              password: "dumb example",
-             confirmation: "dumb example"
+             password_confirmation: "dumb example",
+             date_of_birth: DateTime.now
            }
     end
     assert_redirected_to root_path
