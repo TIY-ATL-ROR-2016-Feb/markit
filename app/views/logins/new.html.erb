@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<%= form_tag(login_path) do %>
+    <%= label_tag("Email") %> <br/>
+    <%= text_field_tag("email") %>
+
+    <%= label_tag("Password") %> <br/>
+    <%= text_field_tag("password") %>
+
+    <%= button_tag("Login") %>
+<% end %>
