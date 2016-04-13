@@ -1,0 +1,8 @@
+<h1>Wonderful Links</h1>
+
+<ul class="all-posts">
+<% @posts.each do |post| %>
+    <li class="post">
+        <a href="<%= post.link_url %>"><%= post.title %></a>
+    </li>
+<% end %>
