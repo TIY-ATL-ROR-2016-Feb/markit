@@ -6,5 +6,5 @@ class Vote < ActiveRecord::Base
               scope: :post_id,
               message: "only get one vote per post."
             }
-  validates_presence :user_id, :post_id, :score
+  validates_presence_of :user_id, :post_id, :score
 end

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :votes
   ## example: @user.votes runs Vote.where(user_id: @user.id)
 
-  has_many :voted_posts, through: :votes
+  has_many :voted_posts, through: :votes, source: :post
 
   validates :email, format: {
               with: /\A.+@.+\..+\Z/,
