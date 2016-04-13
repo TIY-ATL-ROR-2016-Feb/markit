@@ -1,0 +1,19 @@
+<h1>Wonderful Links</h1>
+
+<%= link_to("Submit a Link", new_post_path) %>
+
+<ul class="all-posts">
+<% @posts.each do |post| %>
+    <li class="post">
+        <a href="<%= post.link_url %>"><%= post.title %></a>
+          (<%= post.votes.sum(:score) %> points)
+        <br>
+        <%= link_to("Good post!",
+                    post_votes_path(post, score: 1),
+                    method: :post) %> <br>
+        <%= link_to("Fuck right off",
+                    post_votes_path(post, score: -1),
+                    method: :post) %> <br>
+
+    </li>
+<% end %>
