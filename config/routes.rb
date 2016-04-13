@@ -3,7 +3,20 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users, only: [:new, :create]
-  resources :posts, only: [:new, :create, :index]
+  resources :posts, only: [:new, :create, :index] do
+    resources :votes, only: [:create]
+  end
+
+  # resources :posts do
+  #   resources :comments
+  # end
+
+  # resources :users do
+  #   resources :repositories do
+  #     resources :issues
+  #     resources :pull_requests
+  #   end
+  # end
 
   # resources :login, only: [:new, :create, :destroy]
   get "/login", to: "logins#new"
