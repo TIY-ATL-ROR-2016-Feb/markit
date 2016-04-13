@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = current_user.posts.new(title: params[:title],
+                                   link_url: params[:link_url])
     if @post.save
       flash[:notice] = "We saved it!"
       redirect_to posts_path
@@ -22,7 +23,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @posts = Post.all
+    binding.pry
     render :index
   end
 end
