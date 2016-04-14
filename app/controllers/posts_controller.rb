@@ -2,12 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate!, except: [:index]
 
   def new
-    if current_user
-      render :new
-    else
-      flash[:notice] = "You must be logged in to create posts."
-      redirect_to root_path
-    end
+    @post = Post.new
+    render :new
   end
 
   def create
@@ -20,6 +16,11 @@ class PostsController < ApplicationController
       flash[:notice] = "Please fix any errors."
       render :new
     end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    render :edit
   end
 
   def index
