@@ -1,0 +1,11 @@
+<%= form_for(@post) do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br/>
+
+    <%= f.label :link %>
+    <%= f.text_field :link_url %> <br/>
+
+    <%= f.button "Submit" %>
+
+<% end %>

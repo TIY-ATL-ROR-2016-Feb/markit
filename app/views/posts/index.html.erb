@@ -14,6 +14,7 @@
         <%= link_to("Fuck right off",
                     post_votes_path(post, score: -1),
                     method: :post) %> <br>
+        <%= link_to("Edit it", edit_post_path(post)) %>
 
     </li>
 <% end %>
