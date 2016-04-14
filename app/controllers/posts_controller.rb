@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    binding.pry
     render :new
   end
 
@@ -17,6 +18,22 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  # def finalize
+  #   @client = Client.find(params[:id])
+  #   saved = true
+  #   ActiveRecord::Base.transaction do
+  #     @client.invoices.each do |invoice|
+  #       invoice.hours_billed = params[:invoices][invoice.id][:hours]
+  #       saved = false unless invoice.save
+  #     end
+  #   end
+  #   if @saved
+  #     redirect_to new_page
+  #   else
+  #     render :form
+  #   end
+  # end
 
   def edit
     @post = Post.find(params[:id])
